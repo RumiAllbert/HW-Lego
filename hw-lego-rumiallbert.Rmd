@@ -1,19 +1,40 @@
 ---
-title: "R Notebook"
+title: "Lego Homework - Rumi Allbert"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
-```{r}
-plot(cars)
+```{r message = FALSE}
+library(tidyverse)
+library(dsbox)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+## Exercises
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+### Exercise 1: What are the three most common first names of purchasers?
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+name_count <- lego_sales %>%
+     count(first_name)
 
+sorted_name_count <- name_count %>%
+     arrange(desc(n))
+
+sorted_name_count[1:3,]
+```
+#### In this sample, the most common first names among the purchasers are: Jackson (13), Jacob (11) and Jospeph (11). 
+
+
+
+
+### Exercise 2: What are the three most common themes of Lego sets purchased?
+
+```{r}
+theme_count <- lego_sales %>%
+     count(theme)
+
+sorted_theme_count <- theme_count %>%
+     arrange(desc(n))
+
+sorted_theme_count[1:3,]
+```
+#### In this sample, the most common themes of lego among the purchasers are: Star Wars (75), Nexo Knights (64) and Gear (55). 
