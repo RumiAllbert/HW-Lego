@@ -46,6 +46,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <style type="text/css">.pagedtable {
 overflow: auto;
 padding-left: 8px;
@@ -1751,7 +1760,7 @@ sorted_name_count &lt;- name_count %&gt;%
 
 sorted_name_count[1:3,]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFRVTdETUJEY09qVlZqUXBJdkNPUkVCY2VnRGowaUVEcURibHBTcU9HZFdTN2dpTWZwMkUzOFVyZ1NJNW5aajI3SGo4L2J1N054Z0JBQVhOYWhTWUkrdlhscVh3QW1Dc2lNeW9zZWYraVE3Y0VXTHhKRGk0czFyWStCb2VKYXFKdW04akYyb1dtUHhCYWpZNXB2NXpXdi9ZYTdVY1RVbXVWUkxOdmZZaHZYSkpiWU9aYmV2ZFppWmVicTIvNkRjUHdrdytvT3h0a2dJaG1aNk90OXA0SEFKd3p5OEwxc1hWSUpzWEJkV2FlK1V5NFBpSGZaRmZXaHhNZXl6c2VNSmFuYjVWdzhRZXJhYVFhVWlzdEQ5ZmdlNHVTV25kMjIzU0pYRkhpTVhEVit4YWpKQ0UxVk5GRksrZE03VHBSeG14dy9nVURidStEN3dFQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFRVTdETUJEY09qVlZqUXBJdkNPNUlDRWVnRGowaUVEcURibHBTcU9HZFdTN2dpTWZwMkUzOFVyZ1NJNW5aajI3SGo4L2J1N014Z0JBQVhOYWhTWUkrdlhscVh3QW1Dc2lNeW9zZWYraVE3Y0VXTHhKRGk0czFyWStCb2VKYXFKdW04akYyb1dtUHhCYWpZNXB2NXpXdi9ZYTdVY1RVbXVWUkxOdmZZaHZYSkpiWU9aYmV2ZFppWmVicTIvNkRjUHdrdytvT3h0a2dJaG1aNk90OXA0SEFKd3p5OEwxc1hWSUpzWEJkV2FlK1V5NFBpSGZaRmZXaHhNZXkzc2VNSmFuYjVWdzhRZXJhYVFhVWlzdEQ5ZmdlNHVTV25kMjIzU0pYRkhpTVhEVit4YWpKQ0UxVk5GRksrZE03VHBSeG14dy9nV3NoZ1J3N3dFQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["first_name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Jackson","2":"13"},{"1":"Jacob","2":"11"},{"1":"Joseph","2":"11"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
@@ -1777,7 +1786,7 @@ sorted_theme_count &lt;- theme_count %&gt;%
 
 sorted_theme_count[1:3,]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVB3VTdETUF6MTBnYlVpZ0VTUDdBZmFDWEVZVHR5bU1aaEVnY1lZdGZRaGJXaWM2WTBFenZ5NDZ3NFhTeWhSSEppUC9zOTU3M00xdy81T2dlQUJGS0tSRklLOG0yMUtHWUFxYUJpUkkzTXYwY2F1cVBFZzdlQjRSdlpxMU4yOHE1c0Y0Q3JaMzAwa3lVMjI5b3hsajVwWmVrZEQwU0FKY1VqeFRUYUlsSHRkQmMyQ0FaZHJYZWEvNEVSSmJQbXUyU2ExeGMvZFBWOS94dHJWNjNxV0p2QmZLT2NLajh0OGFrNlJaUkxzM2VOUVNJSmIxMUc1SkdOZ0pzRCtwOXNpcW8rNEZkeDd4Y003Zk1aaHp6NWw0dnpTdEVIS1Jta0xqUnVHMlRYc2xVZnVnM0ZOVGtlREpkNzI2QmpKNFIycFROTzhWeGVtWmFSd1J1Yy9nQlV2SkE4OFFFQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVB3VTdETUF6MTBnYlVhZ01rZm1BLzBGNDRqT01PMHpoTTRnQk03R3E2c0ZaMHlaUm1Za2QrbkJXbml5V1VTRTdzWjcvbnZKZkY1aUhmNUFDUVFFcVJTRXBCcnQrV3hTTkFLcWdZVVNQejc0bUc3aW54NEYxZytFYjI2dEJPMzlGMkFSZy9xNU9acm5TenF4MWo2Wk5DUys5a0lBS3NLT1lVczJpTDFMaFhYZGdnR0hTMTJpditoNDRvbVRYZkpkTzh2dmlocSsvNzMxaTdhckZqYlFiekxUb3NQeTN4cVRwSGxHdHpjSTNSUkJMZXVveklJeHNCdDBmdGY3SXRxdnFvdjRxWlh6QzBMMmNTOHVSZkxpNHJSUitrWkpDNlVuclhhSFl0Vy94UWJTaHV5UEZndUR6WVJqdDJRbWhYT3VPUTUvTEt0SXdNM3VEOEI5bDJKYXp4QVFBQSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["theme"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Star Wars","2":"75"},{"1":"Nexo Knights","2":"64"},{"1":"Gear","2":"55"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
@@ -1788,12 +1797,160 @@ sorted_theme_count[1:3,]</code></pre>
 <!-- rnb-text-begin -->
 <div id="in-this-sample-the-most-common-themes-of-lego-among-the-purchasers-are-star-wars-75-nexo-knights-64-and-gear-55." class="section level4">
 <h4>In this sample, the most common themes of lego among the purchasers are: Star Wars (75), Nexo Knights (64) and Gear (55).</h4>
+</div>
+</div>
+<div id="exercise-3-among-the-most-common-theme-of-lego-sets-purchased-what-is-the-most-common-subtheme" class="section level3">
+<h3>Exercise 3: Among the most common theme of Lego sets purchased, what is the most common subtheme?</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9zdF9jb21tb21fc3VidGhlbWUgPC0gbGVnb19zYWxlcyAlPiVcbiAgZmlsdGVyKHRoZW1lID09IFwiU3RhciBXYXJzXCIpICU+JVxuICBjb3VudChzdWJ0aGVtZSwgc29ydCA9IFRSVUUpXG5tb3N0X2NvbW1vbV9zdWJ0aGVtZVsxLF1cbmBgYCJ9 -->
+<pre class="r"><code>most_commom_subtheme &lt;- lego_sales %&gt;%
+  filter(theme == &quot;Star Wars&quot;) %&gt;%
+  count(subtheme, sort = TRUE)
+most_commom_subtheme[1,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFTdzdDSUJDZG92Z2g4UmN2NEFYc3hvMWJFK01CakNadXNVWGJXTUVBalM0OXVUcFVTQnBJZ0prMzh4N3oyRzlQSzNaaUFOQ0JMdTRPeFJEbzhiQmJyZ0c2QkpNRUMwTjN2N0Jwam9FRHA2M0M3RkNJeFU3cFRDdzJUMzRUMGlBNGFob0FKcEVLbGZ3dWpGY2dIaHlZK213TGNSZmhLUm14aGxvOTA4QjAwdVNOeHhkWExKOVYzSmhvUUpaenk5T0xSajVtbjRqU1Z3OWJLamMwY2U1b1JFNTBCRXhxNlNiSmwxbFJ5NXY3Sm1EZUxMU01KNjJZL0o4a1h5OUZ2VlJQeUdzcGcydGE4Yk9vZkRKR3g0M2g5S0ZMYVlNVFJFMXFsZVdoajJXcUNrampEVDQvMWtWejdkUUJBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["subtheme"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"The Force Awakens","2":"15"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="in-this-sample-the-most-common-subtheme-of-the-most-common-theme-star-wars-is-the-force-awakens-15." class="section level4">
+<h4>In this sample, the most common subtheme of the most common theme (Star Wars) is The Force Awakens (15).</h4>
+</div>
+</div>
+<div id="exercise-4-create-a-new-variable-called-age_group-and-group-the-ages-into-the-following-categories-18-and-under-19---25-26---35-36---50-51-and-over" class="section level3">
+<h3>Exercise 4: Create a new variable called age_group and group the ages into the following categories: “18 and under”, “19 - 25”, “26 - 35”, “36 - 50”, “51 and over”</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVnb19zYWxlcyA8LSBsZWdvX3NhbGVzICU+JVxuICBtdXRhdGUoYWdlX2dyb3VwID0gY2FzZV93aGVuKFxuICAgIGFnZSA8PSAxOCB+IFwiMTggYW5kIHVuZGVyXCIsXG4gICAgYWdlID49IDE5ICYgYWdlIDw9IDI1IH4gXCIxOSAtIDI1XCIsXG4gICAgYWdlID49IDI2ICYgYWdlIDw9IDM1IH4gXCIyNiAtIDM1XCIsXG4gICAgYWdlID49IDM2ICYgYWdlIDw9IDUwIH4gXCIzNiAtIDUwXCIsXG4gICAgYWdlID49IDUxIH4gXCI1MSBhbmQgb3ZlclwiKSlcbmBgYCJ9 -->
+<pre class="r"><code>lego_sales &lt;- lego_sales %&gt;%
+  mutate(age_group = case_when(
+    age &lt;= 18 ~ &quot;18 and under&quot;,
+    age &gt;= 19 &amp; age &lt;= 25 ~ &quot;19 - 25&quot;,
+    age &gt;= 26 &amp; age &lt;= 35 ~ &quot;26 - 35&quot;,
+    age &gt;= 36 &amp; age &lt;= 50 ~ &quot;36 - 50&quot;,
+    age &gt;= 51 ~ &quot;51 and over&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="for-this-exercise-i-create-a-new-column-in-the-lego-sales-dataframe-which-groups-the-different-groups-of-ages-utilizing-case_when." class="section level4">
+<h4>For this exercise I create a new column in the lego sales dataframe which groups the different groups of ages, utilizing case_when().</h4>
+</div>
+</div>
+<div id="exercise-5-which-age-group-has-purchased-the-highest-number-of-lego-sets" class="section level3">
+<h3>Exercise 5: Which age group has purchased the highest number of Lego sets?</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGlnaGVzdF9uX2xlZ29zZXQgPC0gbGVnb19zYWxlcyAlPiVcbiAgICBjb3VudChhZ2VfZ3JvdXAsIHNvcnQgPSBUUlVFKVxuaGlnaGVzdF9uX2xlZ29zZXRbMSxdXG5gYGAifQ== -->
+<pre class="r"><code>highest_n_legoset &lt;- lego_sales %&gt;%
+    count(age_group, sort = TRUE)
+highest_n_legoset[1,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBiWXJDTUJDZHhtYWxCWFZoTCtBRldnUS84QURpQWNRRi8wbTJabXV4SmlWTjBaOGUwOU5VSnpXQmtrQ1NtVGZ6M3N6YmJRN3orQkFEd0FCQ3ZBT0tJZERmL1RaWkE0UUVrd0FMa2ZudjJQU0RnUUcvZTRYaGZEVk5wc3NaaHFNT0JuaDZYQ3JZbGRlV1J5d1lzWndmY3lXYnlrMFFIaTFTOHBZNnF0RW1EM3hlZUh6OXJHUjE3ZTBWbjVobTZiOUNQbWF0UnhuS1NoZFNJSWtZVTlRakI4b0RKbzB3bTV5UzdOeUlTN0l3QTZ4YjZEa1Blakg1akNRdkswV3QxQmNYZVNHNDI3MWtmN3kweVJnZGQ0YlRTaFZDT3llSTFxbVdtcm0rT0pPbFF6cHYwTDRCSHhLbkRNc0JBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["age_group"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"36 - 50","2":"216"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="for-this-sample-it-is-the-age-group-of-36---50-who-have-purchased-the-higest-number-of-lego-sets." class="section level4">
+<h4>For this sample, it is the age group of 36 - 50 who have purchased the higest number of lego sets.</h4>
+</div>
+</div>
+<div id="exercise-6-which-age-group-has-spent-the-most-money-on-legos" class="section level3">
+<h3>Exercise 6: Which age group has spent the most money on Legos?</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGlnaGVzdF9zcGVuZGVyX2FnZWdyb3VwIDwtIGxlZ29fc2FsZXMgJT4lXG4gICAgY291bnQodXNfcHJpY2UsIHNvcnQgPSBUUlVFKVxuaGlnaGVzdF9zcGVuZGVyX2FnZWdyb3VwWzEsXVxuYGBgIn0= -->
+<pre class="r"><code>highest_spender_agegroup &lt;- lego_sales %&gt;%
+    count(us_price, sort = TRUE)
+highest_spender_agegroup[1,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFTd3JDTUJSOGpZMmZnaC9RRzdodU55SzRkQ0c2RndWM0V0dXF4WmlVTmtYQmpTZnlUbDdEaGZwU0c1QUVrc3lidkpsa3NweHRSdDdHQTRBYXVEaHJGQ0hROVdydVR3QmNnb1dEQnkyOVg3R3BqMENUSFUxTWg2L240akc0SVc2WGpRRGNFbEhCem5HT29GY0tmMlN6eUxkcGxvU3hjUmFXcXBYSlMyQ1UycHJjY2ZuZ3NPMUR6bkpqYjBndllvb0Yrd3oxV0wwdFNVT21LcEVDUlVTSG9aYll5U3lpV3dqOWtzZ1BqNFU0K1dOOVFSVVcvb0k3ZjVqOHJpU2Z5b3BXVnZWWUhCSmhVbFBPZGpHdmlnNG1MZ01IK0RGQ21TVEk1b0dTaXBrK0w1VGNNR1UyZUg4QmFoTlAwY01CQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["us_price"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"9.99","2":"108"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="for-this-sample-it-is-the-age-group-of-36---50-who-have-purchased-the-higest-number-of-lego-sets.-1" class="section level4">
+<h4>For this sample, it is the age group of 36 - 50 who have purchased the higest number of lego sets.</h4>
+</div>
+</div>
+<div id="exercise-7-which-lego-theme-has-made-the-most-money-for-lego" class="section level3">
+<h3>Exercise 7: Which Lego theme has made the most money for Lego?</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVnb19zYWxlcyA8LSBsZWdvX3NhbGVzICU+JVxuICAgIG11dGF0ZSh0aGVtZV9pbmNvbWUgPSB1c19wcmljZSAqIHF1YW50aXR5KVxuXG5oaWdoZXN0X2luY29tZV90aGVtZSA8LSBsZWdvX3NhbGVzICU+JVxuICAgIGdyb3VwX2J5KHRoZW1lLCB0aGVtZV9pbmNvbWUpICU+JVxuICAgIGNvdW50KHRoZW1lLCBzb3J0ID0gVFJVRSkgJT4lXG4gICAgYXJyYW5nZShkZXNjKHRoZW1lX2luY29tZSkpXG4gICAgXG5oaWdoZXN0X2luY29tZV90aGVtZVsxLF1cbmBgYCJ9 -->
+<pre class="r"><code>lego_sales &lt;- lego_sales %&gt;%
+    mutate(theme_income = us_price * quantity)
+
+highest_income_theme &lt;- lego_sales %&gt;%
+    group_by(theme, theme_income) %&gt;%
+    count(theme, sort = TRUE) %&gt;%
+    arrange(desc(theme_income))
+    
+highest_income_theme[1,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjN9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRVFVzRE1SQ2QvWWpTb0dYQjM3Rkx4WXNYd1lQb1hSUjZrM1FidTR2clpFbXk2TkdMLzhULzVORi8wanFKU2JFSlRETHo1dkV5Yis1dmxoZDh5UUdnZ0pLaVlKUUNlM3k0clM4QnlweUtqQm96OTc0VDZjd3pBYXAvalpPN1RobTdtb3lWMmxBOWQ3M3J6NTl2ZmpWK1VYN3F1VDRPQkZrN0NHTVNNYjRXVmpUUFdyektoRDdUNnExQndrM1F6RC9vMnRGSmRTT3BDclk4YUR0SmttRmlYenoxMktvOWxpRmQyMFRxV0kyMlYwaGl1WFBPa21Fem5RRFZoTzd6ZGQxMkU3N1U1d3ZuS05pSHcxWHM4K0x2ejNJWHRGalFPcEs0NlRHT3h3YXhra01vNXJRS2I3SVpkWTgycm81UTAxaGxSZVR4VmcwUjhlWmcrd3UxWlhuODhRRUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["theme"],"name":[1],"type":["chr"],"align":["left"]},{"label":["theme_income"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Ghostbusters","2":"699.98","3":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
+<pre class="r"><code>NA</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="for-this-sample-it-is-the-theme-of-ghostbusters-that-generated-the-most-money-for-lego-acrruing-an-income-of-699.98" class="section level4">
+<h4>For this sample, it is the theme of Ghostbusters that generated the most money for Lego, acrruing an income of $699.98</h4>
+</div>
+</div>
+<div id="exercise-8-which-area-code-has-spent-the-most-money-on-legos-in-the-us-the-area-code-is-the-first-3-digits-of-a-phone-number." class="section level3">
+<h3>Exercise 8: Which area code has spent the most money on Legos? In the US the area code is the first 3 digits of a phone number.</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5yb3ciOjEsIm5jb2wiOjN9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRUzBvRU1SQ3Qva1Nab0VPRDUrZ0dFY1ZaQ0M3RUE0akM3SWFZams1amQ2VkpaOUNsRzIvaW5WeDZreGtyTVJFbmdVcXFYbDVlNnRYZHpmS01MemtBRkZCU0ZJeFNZQS8zdC9VbFFKbFRrZEhGekoxdlJEcnhUSURxMzBXeE9MK2dZKzZnNjQvdkwzNDFmbEorN0NrKzluU1k3TVUwSlJxOEZWWTBUMFlNS3FIUGpINXRrUEFwYU9idnRPMW9wYnFSVkFVMy9yVXdTcXlrYmxVQWp1eGFEV3JWb2RSRHhES2tiWnZJSGVyUmRocEpNSGVtV2RKd1poS2cycUJyb0szbGVvTXY5ZW5DdVFvamdQMXgvT1hGNzUvbExtaXhvSFdnOExuRDJCN3J4YVBxUXpHbmNYaWp6V2c2dEhGOGhFNk4xVlpFSHBlNmo0ZzNCOXNmajZDN3BPd0JBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["area_code"],"name":[1],"type":["chr"],"align":["left"]},{"label":["theme_income"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"956","2":"699.98","3":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="for-this-sample-it-is-the-area-code-956-that-generated-the-most-money-for-lego-acrruing-an-income-of-699.98" class="section level4">
+<h4>For this sample, it is the area code 956 that generated the most money for Lego, acrruing an income of $699.98</h4>
+</div>
+</div>
+<div id="exercise-9-why-is-ghostbuster-the-lego-theme-that-generated-the-most-income-is-there-a-reason-for-this" class="section level3">
+<h3>Exercise 9: Why is Ghostbuster the lego theme that generated the most income? Is there a reason for this?</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGxlZ29fc2FsZXMsIGFlcyh1c19wcmljZSwgdGhlbWUpKSArIGdlb21fYm94cGxvdCgpXG5cbmBgYCJ9 -->
+<pre class="r"><code>ggplot(lego_sales, aes(us_price, theme)) + geom_boxplot()
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="creating-a-simle-boxplot-it-becomes-very-obvious-tha-there-is-an-outlier-for-the-ghostbuster-theme-which-would-skew-the-data.-while-all-the-other-lego-themes-have-a-similar-price-range-the-ghostbuster-theme-has-a-very-distant-outlier.-there-are-many-reasons-why-this-could-be-the-case-perhaps-the-ghostbuster-theme-is-a-limited-model-that-goes-for-a-high-price." class="section level4">
+<h4>Creating a simle boxplot, it becomes very obvious tha there is an outlier for the Ghostbuster theme, which would skew the data. While all the other lego themes have a similar price range, the Ghostbuster theme has a very distant outlier. There are many reasons why this could be the case, perhaps the Ghostbuster theme is a limited model that goes for a high price.</h4>
 <!-- rnb-text-end -->
 </div>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGVnbyBIb21ld29yayAtIFJ1bWkgQWxsYmVydCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3IgbWVzc2FnZSA9IEZBTFNFfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShkc2JveCkKYGBgCgojIyBFeGVyY2lzZXMKCiMjIyBFeGVyY2lzZSAxOiBXaGF0IGFyZSB0aGUgdGhyZWUgbW9zdCBjb21tb24gZmlyc3QgbmFtZXMgb2YgcHVyY2hhc2Vycz8KCmBgYHtyfQpuYW1lX2NvdW50IDwtIGxlZ29fc2FsZXMgJT4lCiAgICAgY291bnQoZmlyc3RfbmFtZSkKCnNvcnRlZF9uYW1lX2NvdW50IDwtIG5hbWVfY291bnQgJT4lCiAgICAgYXJyYW5nZShkZXNjKG4pKQoKc29ydGVkX25hbWVfY291bnRbMTozLF0KYGBgCiMjIyMgSW4gdGhpcyBzYW1wbGUsIHRoZSBtb3N0IGNvbW1vbiBmaXJzdCBuYW1lcyBhbW9uZyB0aGUgcHVyY2hhc2VycyBhcmU6IEphY2tzb24gKDEzKSwgSmFjb2IgKDExKSBhbmQgSm9zcGVwaCAoMTEpLiAKCgoKCiMjIyBFeGVyY2lzZSAyOiBXaGF0IGFyZSB0aGUgdGhyZWUgbW9zdCBjb21tb24gdGhlbWVzIG9mIExlZ28gc2V0cyBwdXJjaGFzZWQ/CgpgYGB7cn0KdGhlbWVfY291bnQgPC0gbGVnb19zYWxlcyAlPiUKICAgICBjb3VudCh0aGVtZSkKCnNvcnRlZF90aGVtZV9jb3VudCA8LSB0aGVtZV9jb3VudCAlPiUKICAgICBhcnJhbmdlKGRlc2MobikpCgpzb3J0ZWRfdGhlbWVfY291bnRbMTozLF0KYGBgCiMjIyMgSW4gdGhpcyBzYW1wbGUsIHRoZSBtb3N0IGNvbW1vbiB0aGVtZXMgb2YgbGVnbyBhbW9uZyB0aGUgcHVyY2hhc2VycyBhcmU6IFN0YXIgV2FycyAoNzUpLCBOZXhvIEtuaWdodHMgKDY0KSBhbmQgR2VhciAoNTUpLiA=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGVnbyBIb21ld29yayAtIFJ1bWkgQWxsYmVydCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3IgbWVzc2FnZSA9IEZBTFNFfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShkc2JveCkKYGBgCgojIyBFeGVyY2lzZXMKCiMjIyBFeGVyY2lzZSAxOiBXaGF0IGFyZSB0aGUgdGhyZWUgbW9zdCBjb21tb24gZmlyc3QgbmFtZXMgb2YgcHVyY2hhc2Vycz8KCmBgYHtyfQpuYW1lX2NvdW50IDwtIGxlZ29fc2FsZXMgJT4lCiAgICAgY291bnQoZmlyc3RfbmFtZSkKCnNvcnRlZF9uYW1lX2NvdW50IDwtIG5hbWVfY291bnQgJT4lCiAgICAgYXJyYW5nZShkZXNjKG4pKQoKc29ydGVkX25hbWVfY291bnRbMTozLF0KYGBgCiMjIyMgSW4gdGhpcyBzYW1wbGUsIHRoZSBtb3N0IGNvbW1vbiBmaXJzdCBuYW1lcyBhbW9uZyB0aGUgcHVyY2hhc2VycyBhcmU6IEphY2tzb24gKDEzKSwgSmFjb2IgKDExKSBhbmQgSm9zcGVwaCAoMTEpLiAKCgoKCiMjIyBFeGVyY2lzZSAyOiBXaGF0IGFyZSB0aGUgdGhyZWUgbW9zdCBjb21tb24gdGhlbWVzIG9mIExlZ28gc2V0cyBwdXJjaGFzZWQ/CgpgYGB7cn0KdGhlbWVfY291bnQgPC0gbGVnb19zYWxlcyAlPiUKICAgICBjb3VudCh0aGVtZSkKCnNvcnRlZF90aGVtZV9jb3VudCA8LSB0aGVtZV9jb3VudCAlPiUKICAgICBhcnJhbmdlKGRlc2MobikpCgpzb3J0ZWRfdGhlbWVfY291bnRbMTozLF0KYGBgCiMjIyMgSW4gdGhpcyBzYW1wbGUsIHRoZSBtb3N0IGNvbW1vbiB0aGVtZXMgb2YgbGVnbyBhbW9uZyB0aGUgcHVyY2hhc2VycyBhcmU6IFN0YXIgV2FycyAoNzUpLCBOZXhvIEtuaWdodHMgKDY0KSBhbmQgR2VhciAoNTUpLgoKCgoKIyMjIEV4ZXJjaXNlIDM6IEFtb25nIHRoZSBtb3N0IGNvbW1vbiB0aGVtZSBvZiBMZWdvIHNldHMgcHVyY2hhc2VkLCB3aGF0IGlzIHRoZSBtb3N0IGNvbW1vbiBzdWJ0aGVtZT8KCmBgYHtyfQptb3N0X2NvbW1vbV9zdWJ0aGVtZSA8LSBsZWdvX3NhbGVzICU+JQogIGZpbHRlcih0aGVtZSA9PSAiU3RhciBXYXJzIikgJT4lCiAgY291bnQoc3VidGhlbWUsIHNvcnQgPSBUUlVFKQptb3N0X2NvbW1vbV9zdWJ0aGVtZVsxLF0KYGBgCiMjIyMgSW4gdGhpcyBzYW1wbGUsIHRoZSBtb3N0IGNvbW1vbiBzdWJ0aGVtZSBvZiB0aGUgbW9zdCBjb21tb24gdGhlbWUgKFN0YXIgV2FycykgaXMgVGhlIEZvcmNlIEF3YWtlbnMgKDE1KS4KCgoKCiMjIyBFeGVyY2lzZSA0OiBDcmVhdGUgYSBuZXcgdmFyaWFibGUgY2FsbGVkIGFnZV9ncm91cCBhbmQgZ3JvdXAgdGhlIGFnZXMgaW50byB0aGUgZm9sbG93aW5nIGNhdGVnb3JpZXM6IOKAnDE4IGFuZCB1bmRlcuKAnSwg4oCcMTkgLSAyNeKAnSwg4oCcMjYgLSAzNeKAnSwg4oCcMzYgLSA1MOKAnSwg4oCcNTEgYW5kIG92ZXLigJ0KCmBgYHtyfQpsZWdvX3NhbGVzIDwtIGxlZ29fc2FsZXMgJT4lCiAgbXV0YXRlKGFnZV9ncm91cCA9IGNhc2Vfd2hlbigKICAgIGFnZSA8PSAxOCB+ICIxOCBhbmQgdW5kZXIiLAogICAgYWdlID49IDE5ICYgYWdlIDw9IDI1IH4gIjE5IC0gMjUiLAogICAgYWdlID49IDI2ICYgYWdlIDw9IDM1IH4gIjI2IC0gMzUiLAogICAgYWdlID49IDM2ICYgYWdlIDw9IDUwIH4gIjM2IC0gNTAiLAogICAgYWdlID49IDUxIH4gIjUxIGFuZCBvdmVyIikpCmBgYAojIyMjIEZvciB0aGlzIGV4ZXJjaXNlIEkgY3JlYXRlIGEgbmV3IGNvbHVtbiBpbiB0aGUgbGVnbyBzYWxlcyBkYXRhZnJhbWUgd2hpY2ggZ3JvdXBzIHRoZSBkaWZmZXJlbnQgZ3JvdXBzIG9mIGFnZXMsIHV0aWxpemluZyBjYXNlX3doZW4oKS4KCgoKCiMjIyBFeGVyY2lzZSA1OiBXaGljaCBhZ2UgZ3JvdXAgaGFzIHB1cmNoYXNlZCB0aGUgaGlnaGVzdCBudW1iZXIgb2YgTGVnbyBzZXRzPwoKYGBge3J9CmhpZ2hlc3Rfbl9sZWdvc2V0IDwtIGxlZ29fc2FsZXMgJT4lCiAgICBjb3VudChhZ2VfZ3JvdXAsIHNvcnQgPSBUUlVFKQpoaWdoZXN0X25fbGVnb3NldFsxLF0KYGBgCiMjIyMgRm9yIHRoaXMgc2FtcGxlLCBpdCBpcyB0aGUgYWdlIGdyb3VwIG9mIDM2IC0gNTAgd2hvIGhhdmUgcHVyY2hhc2VkIHRoZSBoaWdlc3QgbnVtYmVyIG9mIGxlZ28gc2V0cy4KCgoKIyMjIEV4ZXJjaXNlIDY6IFdoaWNoIGFnZSBncm91cCBoYXMgc3BlbnQgdGhlIG1vc3QgbW9uZXkgb24gTGVnb3M/CgpgYGB7cn0KaGlnaGVzdF9zcGVuZGVyX2FnZWdyb3VwIDwtIGxlZ29fc2FsZXMgJT4lCiAgICBjb3VudCh1c19wcmljZSwgc29ydCA9IFRSVUUpCmhpZ2hlc3Rfc3BlbmRlcl9hZ2Vncm91cFsxLF0KYGBgCiMjIyMgRm9yIHRoaXMgc2FtcGxlLCBpdCBpcyB0aGUgYWdlIGdyb3VwIG9mIDM2IC0gNTAgd2hvIGhhdmUgcHVyY2hhc2VkIHRoZSBoaWdlc3QgbnVtYmVyIG9mIGxlZ28gc2V0cy4KCgoKIyMjIEV4ZXJjaXNlIDc6IFdoaWNoIExlZ28gdGhlbWUgaGFzIG1hZGUgdGhlIG1vc3QgbW9uZXkgZm9yIExlZ28/CgpgYGB7cn0KbGVnb19zYWxlcyA8LSBsZWdvX3NhbGVzICU+JQogICAgbXV0YXRlKHRoZW1lX2luY29tZSA9IHVzX3ByaWNlICogcXVhbnRpdHkpCgpoaWdoZXN0X2luY29tZV90aGVtZSA8LSBsZWdvX3NhbGVzICU+JQogICAgZ3JvdXBfYnkodGhlbWUsIHRoZW1lX2luY29tZSkgJT4lCiAgICBjb3VudCh0aGVtZSwgc29ydCA9IFRSVUUpICU+JQogICAgYXJyYW5nZShkZXNjKHRoZW1lX2luY29tZSkpCiAgICAKaGlnaGVzdF9pbmNvbWVfdGhlbWVbMSxdCgpgYGAKIyMjIyBGb3IgdGhpcyBzYW1wbGUsIGl0IGlzIHRoZSB0aGVtZSBvZiBHaG9zdGJ1c3RlcnMgdGhhdCBnZW5lcmF0ZWQgdGhlIG1vc3QgbW9uZXkgZm9yIExlZ28sIGFjcnJ1aW5nIGFuIGluY29tZSBvZiAkNjk5Ljk4CgoKCiMjIyBFeGVyY2lzZSA4OiBXaGljaCBhcmVhIGNvZGUgaGFzIHNwZW50IHRoZSBtb3N0IG1vbmV5IG9uIExlZ29zPyBJbiB0aGUgVVMgdGhlIGFyZWEgY29kZSBpcyB0aGUgZmlyc3QgMyBkaWdpdHMgb2YgYSBwaG9uZSBudW1iZXIuCgpgYGB7cn0KbGVnb19zYWxlcyA8LSBsZWdvX3NhbGVzICU+JQogICAgbXV0YXRlKHRoZW1lX2luY29tZSA9IHVzX3ByaWNlICogcXVhbnRpdHkpCgpsZWdvX3NhbGVzIDwtIGxlZ29fc2FsZXMgJT4lCiAgICBtdXRhdGUoYXJlYV9jb2RlID0gc3RyX3N1YigocGhvbmVfbnVtYmVyKSwgMSwgMykpCgpoaWdoZXN0X2luY29tZV9hcmVhY29kZSA8LSBsZWdvX3NhbGVzICU+JQogICAgZ3JvdXBfYnkoYXJlYV9jb2RlLCB0aGVtZV9pbmNvbWUpICU+JQogICAgY291bnQoYXJlYV9jb2RlLCBzb3J0ID0gVFJVRSkgJT4lCiAgICBhcnJhbmdlKGRlc2ModGhlbWVfaW5jb21lKSkKICAgIApoaWdoZXN0X2luY29tZV9hcmVhY29kZVsxLF0KCmBgYAojIyMjIEZvciB0aGlzIHNhbXBsZSwgaXQgaXMgdGhlIGFyZWEgY29kZSA5NTYgdGhhdCBnZW5lcmF0ZWQgdGhlIG1vc3QgbW9uZXkgZm9yIExlZ28sIGFjcnJ1aW5nIGFuIGluY29tZSBvZiAkNjk5Ljk4CgoKCiMjIyBFeGVyY2lzZSA5OiBXaHkgaXMgR2hvc3RidXN0ZXIgdGhlIGxlZ28gdGhlbWUgdGhhdCBnZW5lcmF0ZWQgdGhlIG1vc3QgaW5jb21lPyBJcyB0aGVyZSBhIHJlYXNvbiBmb3IgdGhpcz8KYGBge3J9CmdncGxvdChsZWdvX3NhbGVzLCBhZXModXNfcHJpY2UsIHRoZW1lKSkgKyBnZW9tX2JveHBsb3QoKQoKYGBgCiMjIyMgQ3JlYXRpbmcgYSBzaW1sZSBib3hwbG90LCBpdCBiZWNvbWVzIHZlcnkgb2J2aW91cyB0aGEgdGhlcmUgaXMgYW4gb3V0bGllciBmb3IgdGhlIEdob3N0YnVzdGVyIHRoZW1lLCB3aGljaCB3b3VsZCBza2V3IHRoZSBkYXRhLiBXaGlsZSBhbGwgdGhlIG90aGVyIGxlZ28gdGhlbWVzIGhhdmUgYSBzaW1pbGFyIHByaWNlIHJhbmdlLCB0aGUgR2hvc3RidXN0ZXIgdGhlbWUgaGFzIGEgdmVyeSBkaXN0YW50IG91dGxpZXIuIFRoZXJlIGFyZSBtYW55IHJlYXNvbnMgd2h5IHRoaXMgY291bGQgYmUgdGhlIGNhc2UsIHBlcmhhcHMgdGhlIEdob3N0YnVzdGVyIHRoZW1lIGlzIGEgbGltaXRlZCBtb2RlbCB0aGF0IGdvZXMgZm9yIGEgaGlnaCBwcmljZS4KCgoK</div>
 
 
 
